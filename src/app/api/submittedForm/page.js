@@ -2,9 +2,10 @@
 
 
 import {useSearchParams } from 'next/navigation'
+import { Suspense } from 'react';
 
 
-const SubmittedPage = () => {
+const SubmitPage = () => {
  
  const name = useSearchParams().get('name')
  const email = useSearchParams().get('email')
@@ -31,4 +32,12 @@ const SubmittedPage = () => {
   );
 };
 
-export default SubmittedPage;
+
+export default function SubmittedPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SubmitPage />
+    </Suspense>
+  );
+}
+
