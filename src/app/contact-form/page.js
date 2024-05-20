@@ -24,33 +24,10 @@ export default function ContactForm() {
     
     } 
 
-    const handleSubmit = async (e) => {
-    
-        e.preventDefault();
-        try {
-          const response = await fetch('/api/submittedForm', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          });
 
-          if (response.ok) {
-            console.log('Form submitted successfully');
-          } else {
-            console.error('Form submission failed');
-          }
-        } catch (error) {
-          console.error('Form submission error:', error);
-        }
-
-      };
-
-    console.log(formData);
 
 return(
-    <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-5" >
       <div className='text-center '><h1 className='font-bold text-xl'>Next JS Form</h1></div>
     <div className="flex gap-4 mt-4">
     <label className='font-bold' htmlFor="name">Name: </label>
